@@ -1,6 +1,6 @@
 const express = require("express");
 // const members = require("./Members");
-const bodyparser = require("body-parser");
+// const bodyparser = require("body-parser");
 const app = express();
 
 //bodyparser middleware
