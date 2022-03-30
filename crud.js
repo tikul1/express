@@ -87,9 +87,12 @@ app.delete("/accounts/:id", (req, res) => {
     (account) => account.id === parseInt(req.params.id)
   );
   if (found) {
-    res.json({msg: 'member deleted',
-      account: accounts.filter((account) => account.id !== parseInt(req.params.id))}
-    );
+    res.json({
+      msg: "member deleted",
+      account: accounts.filter(
+        (account) => account.id !== parseInt(req.params.id)
+      ),
+    });
   } else {
     res.status(400).json({ msg: `no account with the id of ${req.params.id}` });
   }
