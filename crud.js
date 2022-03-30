@@ -83,6 +83,7 @@ app.put("/accounts/:id", (req, res) => {
 
 //deleting data
 app.delete("/accounts/:id", (req, res) => {
+  //.some is used in array to test all the data
   const found = accounts.some(
     (account) => account.id === parseInt(req.params.id)
   );
