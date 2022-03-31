@@ -1,5 +1,5 @@
 const express = require("express");
-const res = require("express/lib/response");
+// const res = require("express/lib/response");
 app = express();
 
 app.use(express.json());
@@ -50,9 +50,10 @@ app.post("/accounts", (req, res) => {
   };
   if (!newAccount.id || !newAccount.username || !newAccount.role) {
     res.status(400).json({ msg: "Please include id, username and role" });
+  } else {
+    accounts.push(newAccount);
+    res.json(accounts);
   }
-  accounts.push(newAccount);
-  res.json(accounts);
 });
 
 //updating data
@@ -75,9 +76,7 @@ app.put("/accounts/:id", (req, res) => {
       }
     });
   } else {
-    return res
-      .status(400)
-      .json({ msg: `no account with the id of ${req.params.id}` });
+    res.status(400).json({ msg: `no account with the id of ${req.params.id}` });
   }
 });
 
